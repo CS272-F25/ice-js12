@@ -4,7 +4,7 @@ const NUMS = [2, 5, 6, 8, 19, 22, 27];
 /**
  *  Add event listeners such that the buttons with the following ids
  *  perform the corresponding calculation on the lists of NAMES and NUMS.
- * 
+ *
  * `btn-log-names`       Prints out each name on a new line
  * `btn-first-initial`   Prints out the list of each person's first initial
  * `btn-length-of-name`  Prints out the list of each person's name length
@@ -13,3 +13,15 @@ const NUMS = [2, 5, 6, 8, 19, 22, 27];
  * `btn-is-there-7`      Prints out whether or not there is a 7 in the list of numbers
  * `btn-is-all-positive` Prints out whether or not each number is positive
  */
+
+function writeOutput(stringOrArray) {
+  const outputNode = document.getElementById("output");
+  outputNode.innerText = Array.isArray(stringOrArray)
+    ? stringOrArray.join(", ")
+    : stringOrArray;
+}
+
+window.addEventListener("load", () => {
+  document.getElementById("names").innerText = "Name list: " + NAMES.join(", ");
+  document.getElementById("nums").innerText = "Number list: " + NUMS.join(", ");
+});
