@@ -2,6 +2,15 @@ const NAMES = ["Jessie", "Jackson", "Ben", "Kyle", "Gabby", "Jill"];
 const NUMS = [2, 5, 6, 8, 19, 22, 27];
 
 /**
+ * PART 1:
+ *  Add an event listener to the `input` element.
+ *  For now, just have it console.log something.
+ *
+ *  You can choose `keypress`, `click`, `focus`, or anything else you want to try!
+ */
+
+/**
+ * PART 2:
  *  Add event listeners such that the buttons with the following ids
  *  perform the corresponding calculation on the lists of NAMES and NUMS.
  *
