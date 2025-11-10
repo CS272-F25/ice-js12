@@ -16,9 +16,9 @@
 
   <body class="m-2">
     <h1>Functions Practice</h1>
-    <p>
-      The focus here is not on the UI, it is on learning declarative functions!
-    </p>
+    <p id="names"></p>
+    <p id="nums"></p>
+
     <button class="btn btn-primary mb-2" id="btn-log-names">Log Names</button>
     <button class="btn btn-secondary mb-2" id="btn-first-initial">
       First Initial
@@ -37,5 +37,18 @@
     <button class="btn btn-dark mb-2" id="btn-is-all-positive">
       Is All Positive?
     </button>
+
+    <br />
+
+    <p>Output:</p>
+    <p id="output"></p>
+
+    <br />
+    <label for="input">Test Input</label>
+    <input
+      class="form-control"
+      id="input"
+      onpaste="console.log('You tried to paste something'); return false"
+    />
   </body>
 </html>
