@@ -19,22 +19,22 @@
     <p id="names"></p>
     <p id="nums"></p>
 
-    <button class="btn btn-primary mb-2" id="btn-log-names">Log Names</button>
-    <button class="btn btn-secondary mb-2" id="btn-first-initial">
+    <button class="btn btn-primary mb-2" id="btn-log-names" tabindex="0">Log Names</button>
+    <button class="btn btn-secondary mb-2" id="btn-first-initial" tabindex="0">
       First Initial
     </button>
-    <button class="btn btn-danger mb-2" id="btn-length-of-name">
+    <button class="btn btn-danger mb-2" id="btn-length-of-name" tabindex="0">
       Length of Name
     </button>
     <br />
-    <button class="btn btn-success mb-2" id="btn-j-names">Only J Names</button>
-    <button class="btn btn-warning mb-2" id="btn-long-j-names">
+    <button class="btn btn-success mb-2" id="btn-j-names" tabindex="0">Only J Names</button>
+    <button class="btn btn-warning mb-2" id="btn-long-j-names" tabindex="0">
       Only Long J Names
     </button>
 
     <br />
-    <button class="btn btn-light mb-2" id="btn-is-there-7">Includes 7?</button>
-    <button class="btn btn-dark mb-2" id="btn-is-all-positive">
+    <button class="btn btn-light mb-2" id="btn-is-there-7" tabindex="0">Includes 7?</button>
+    <button class="btn btn-dark mb-2" id="btn-is-all-positive" tabindex="0">
       Is All Positive?
     </button>
 
@@ -44,11 +44,13 @@
     <p id="output"></p>
 
     <br />
-    <label for="input">Test Input</label>
-    <input
-      class="form-control"
-      id="input"
-      onpaste="console.log('You tried to paste something'); return false"
-    />
+    <form id="form" onsubmit="console.log(event)">
+      <label for="input">Test Input</label>
+      <input
+        class="form-control"
+        id="input"
+        onpaste="console.log('You tried to paste something'); return false"
+      />
+    </form>
   </body>
 </html>
