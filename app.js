@@ -77,14 +77,4 @@ function writeOutput(stringOrArray) {
 window.addEventListener("load", () => {
   document.getElementById("names").innerText = "Name list: " + NAMES.join(", ");
   document.getElementById("nums").innerText = "Number list: " + NUMS.join(", ");
-
-  document
-    .getElementById("input")
-    .addEventListener("keypress", (event) => console.log(event.key));
-  document
-    .getElementById("btn-is-all-positive")
-    .addEventListener("click", (event) => console.log(event));
-  document
-    .getElementById("btn-is-all-positive")
-    .addEventListener("focus", (event) => console.log(event));
 });
