@@ -2,15 +2,6 @@ const NAMES = ["Jessie", "Jackson", "Ben", "Kyle", "Gabby", "Jill"];
 const NUMS = [2, 5, 6, 8, 19, 22, 27];
 
 /**
- * PART 1:
- *  Add an event listener to the `input` element.
- *  For now, just have it console.log something.
- *
- *  You can choose `keypress`, `click`, `focus`, or anything else you want to try!
- */
-
-/**
- * PART 2:
  *  Add event listeners such that the buttons with the following ids
  *  perform the corresponding calculation on the lists of NAMES and NUMS.
  *
@@ -33,14 +24,4 @@ function writeOutput(stringOrArray) {
 window.addEventListener("load", () => {
   document.getElementById("names").innerText = "Name list: " + NAMES.join(", ");
   document.getElementById("nums").innerText = "Number list: " + NUMS.join(", ");
-
-  document
-    .getElementById("input")
-    .addEventListener("keypress", (event) => console.log(event.key));
-  document
-    .getElementById("btn-is-all-positive")
-    .addEventListener("click", (event) => console.log(event));
-  document
-    .getElementById("btn-is-all-positive")
-    .addEventListener("focus", (event) => console.log(event));
 });
