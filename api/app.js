@@ -1,8 +1,11 @@
 const courseDivNode = document.getElementById("course-list");
 
-getCourseList().then((courseList) => {
-  // TODO #1 Insert many course components into the courseDivNode!
-});
+const COURSE_API_ENDPOINT = "https://cs272.cs.wisc.edu/rest/f25/ice/courses";
+
+const courses = getCoursesSync();
+courses
+  .map((c) => createCourseComponent(c))
+  .forEach((n) => courseDivNode.appendChild(n));
 
 /**
  * Given some course data, returns a new HTML element.

@@ -73,8 +73,20 @@ const COURSE_LIST = [
   },
 ];
 
-function getCourseList() {
+function fakeFetchCourses() {
   return new Promise((resolve) => {
-    setTimeout(() => resolve(COURSE_LIST), 1500);
+    setTimeout(
+      () =>
+        resolve({
+          ok: true,
+          status: 200,
+          json: async () => COURSE_LIST,
+        }),
+      1500
+    );
   });
+}
+
+function getCoursesSync() {
+  return COURSE_LIST;
 }
