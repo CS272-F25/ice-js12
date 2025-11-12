@@ -73,7 +73,21 @@ const COURSE_LIST = [
   },
 ];
 
-function fakeFetchCourses() {
+function fakeFetchCourses(endpoint, options) {
+  if (endpoint !== "https://cs272.cs.wisc.edu/rest/f25/ice/courses") {
+    return new Promise((resolve) => {
+      setTimeout(
+        () =>
+          resolve({
+            ok: false,
+            status: 404,
+            json: async () => ({ message: "Resource not found!" }),
+          }),
+
+        1500
+      );
+    });
+  }
   return new Promise((resolve) => {
     setTimeout(
       () =>

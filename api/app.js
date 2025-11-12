@@ -2,6 +2,9 @@ const courseDivNode = document.getElementById("course-list");
 
 const COURSE_API_ENDPOINT = "https://cs272.cs.wisc.edu/rest/f25/ice/courses";
 
+// TODO #1 Replace this with a fetch!
+// if network is bad or class server is down, you can use
+// fakeFetchCourses function instead of fetch
 const courses = getCoursesSync();
 courses
   .map((c) => createCourseComponent(c))
