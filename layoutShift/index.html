@@ -15,7 +15,11 @@
 
 <body class="m-2">
     <h1>Buy Stuff!</h1>
-    <img src="0" />
+    <!-- Prevent layout shift by specifying height AND width: -->
+    <img src="0" height="80" width="80" />
+    <!-- Could be done using style="height: 80px; width: 80px" as well. -->
+    <!-- Need both height AND width because the browser can't know
+      the aspect ratio of the image before it's loaded. That was my mistake in class -->
     <br/>
     <button class="btn btn-outline-primary m-2">Buy Stuff!</button>
     <br/>
