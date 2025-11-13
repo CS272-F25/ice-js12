@@ -4,11 +4,15 @@ const COURSE_API_ENDPOINT = "https://cs272.cs.wisc.edu/rest/f25/ice/courses";
 
 // TODO #1 Replace this with a fetch!
 // if network is bad or class server is down, you can use
-// fakeFetchCourses function instead of fetch
-const courses = getCoursesSync();
-courses
-  .map((c) => createCourseComponent(c))
-  .forEach((n) => courseDivNode.appendChild(n));
+// // fakeFetchCourses function instead of fetch
+
+fetch(COURSE_API_ENDPOINT)
+  .then((response) => response.json())
+  .then((courses) => {
+    courses
+      .map((c) => createCourseComponent(c))
+      .forEach((n) => courseDivNode.appendChild(n));
+  });
 
 /**
  * Given some course data, returns a new HTML element.
