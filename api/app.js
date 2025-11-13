@@ -2,10 +2,6 @@ const courseDivNode = document.getElementById("course-list");
 
 const COURSE_API_ENDPOINT = "https://cs272.cs.wisc.edu/rest/f25/ice/courses";
 
-// TODO #1 Replace this with a fetch!
-// if network is bad or class server is down, you can use
-// // fakeFetchCourses function instead of fetch
-
 fetch(COURSE_API_ENDPOINT)
   .then((response) => response.json())
   .then((courses) => {
@@ -22,9 +18,7 @@ fetch(COURSE_API_ENDPOINT)
 function createCourseComponent(courseData) {
   const newColDivNode = document.createElement("div");
   newColDivNode.id = `course-${courseData.id}`;
-
-  // TODO #2: Display responsively
-  newColDivNode.className = "col";
+  newColDivNode.className = "col-12 col-md-6 col-lg-4";
 
   const newCardDivNode = document.createElement("div");
   newCardDivNode.className = "card m-2 p-2";
@@ -32,8 +26,10 @@ function createCourseComponent(courseData) {
   const newStarNode = document.createElement("span");
   newStarNode.style.float = "right";
   newStarNode.className = "bi-star";
-  // TODO #3 Add an event listener to the star to make it clickable!
-  //         You can use the class name of bi-star-fill
+  newStarNode.addEventListener("click", () => {
+    newStarNode.classList.toggle("bi-star");
+    newStarNode.classList.toggle("bi-star-fill");
+  });
 
   const newTitleNode = document.createElement("h2");
   newTitleNode.innerText = `${courseData.id}: ${courseData.name}`;
@@ -44,18 +40,28 @@ function createCourseComponent(courseData) {
 
   const newBadgesDivNode = document.createElement("div");
   newBadgesDivNode.style.display = "flex";
-  // TODO #4 Add a badge for each one of the keywords
-  //         https://getbootstrap.com/docs/5.3/components/badge/
+  courseData.keywords.forEach((word) => {
+    const newBadgeNode = document.createElement("p");
+    newBadgeNode.className = "badge text-bg-secondary me-2";
+    newBadgeNode.innerText = word;
+    newBadgesDivNode.appendChild(newBadgeNode);
+  });
 
   const newDescNode = document.createElement("p");
-  newDescNode.innerText = courseData.description;
+  newDescNode.innerText = courseData.description.substring(0, 200) + "...";
 
   const newReadMoreBtnNode = document.createElement("button");
   newReadMoreBtnNode.className = "btn btn-outline-secondary";
   newReadMoreBtnNode.innerText = "Read More";
-  // EXTRA TODO Implement the button such that it toggles the amount
-  //            of description that is being shown (e.g. 200 characters)
-  //       HINT You will likely use an event listener here.
+  newReadMoreBtnNode.addEventListener("click", () => {
+    if (newReadMoreBtnNode.innerText === "Read More") {
+      newDescNode.innerText = courseData.description;
+      newReadMoreBtnNode.innerText = "Read Less";
+    } else {
+      newDescNode.innerText = courseData.description.substring(0, 200) + "...";
+      newReadMoreBtnNode.innerText = "Read More";
+    }
+  });
 
   newTitleNode.appendChild(newStarNode);
 
